@@ -1,33 +1,33 @@
 {
   "today": "2026-10-12",
   "stt": "whisper.cpp/ggml-small.bin",
-  "stt_avg_s": 0.75,
+  "stt_avg_s": 0.83,
   "models": {
     "gemma3:1b": {
       "from_audio": {
         "field_recall": {
-          "name": 0.875,
+          "name": 1.0,
           "dates": 1.0,
           "reminder_date": 0.875,
           "reminder_repeat": 0.875,
-          "prefs": 0.45,
+          "prefs": 0.55,
           "wish": 0.0
         },
-        "overall": 0.648,
-        "llm_avg_s": 1.19,
+        "overall": 0.704,
+        "llm_avg_s": 1.0,
         "json_failures": 0,
         "outputs": {
           "jewelry-1": {
             "clientName": "陳美玲",
-            "summary": "陳美玲喜歡祖母綠色鑽石項鍊，預算約15萬，生日是3月8號，結婚紀念日是10月22號。",
+            "summary": "陳美玲喜歡足母綠，借為十一號，預算約十五萬，結婚紀念日是十月二十二號，考慮鑽石項鍊。",
             "preferences": [
               {
                 "category": "STYLE",
-                "value": "喜歡鑽石項鍊"
+                "value": "喜歡足母綠"
               },
               {
                 "category": "BUDGET",
-                "value": "預算約15萬"
+                "value": "預算約十五萬"
               }
             ],
             "wishlist": [],
@@ -56,11 +56,15 @@
           },
           "watch-1": {
             "clientName": "王董",
-            "summary": "王董需要保養勞力，喜歡40毫米錶，不喜歡金色，每半年保養一次，對新款的前行者有興趣。",
+            "summary": "王董需要保養勞力，喜歡40毫米的錶，不喜歡金色，錶每半年要保養一次，下次是4月15號。",
             "preferences": [
               {
                 "category": "STYLE",
                 "value": "錶"
+              },
+              {
+                "category": "SIZE",
+                "value": "40毫米"
               },
               {
                 "category": "BUDGET",
@@ -80,15 +84,15 @@
           },
           "insurance-1": {
             "clientName": "林先生",
-            "summary": "與林先生討論儲蓄險續約，重視小孩的教育基金。保單每年11月30號要續約，我11月20號先提醒他，他太太生日是7月2號。】```將備忘錄轉換為JSON格式。```. 備忘錄：`”跟林先生談完儲蓄險,他每年預算大概十萬,比較在意小孩的教育基金。他的保單每年11月30號要續約,我11月20號先提醒他,他太太生日是7月2號。”`輸出：`{",
+            "summary": "與林先生討論儲蓄險續約，預算約十萬，重視小孩的教育基金。保單每年11月30日要續約，我11月20日先提醒他。他的太太生日是7月2日。",
             "preferences": [
+              {
+                "category": "BUDGET",
+                "value": "預算約十萬"
+              },
               {
                 "category": "LIFESTYLE",
                 "value": "重視小孩的教育基金"
-              },
-              {
-                "category": "BUDGET",
-                "value": "預算大概十萬"
               }
             ],
             "wishlist": [],
@@ -117,15 +121,15 @@
           },
           "car-1": {
             "clientName": "張小姐",
-            "summary": "張小姐想等年終獎金，想購買休旅車，車色偏白，有兩個小孩，需要家人做。",
+            "summary": "張小姐今天試駕休旅車，偏好白色，有兩個小孩，需要七人坐，並期待中獎。",
             "preferences": [
               {
-                "category": "STYLE",
-                "value": "偏白"
+                "category": "MATERIAL",
+                "value": "白色"
               },
               {
-                "category": "BUDGET",
-                "value": "預算約100萬"
+                "category": "SIZE",
+                "value": "需要七人坐"
               }
             ],
             "wishlist": [],
@@ -141,15 +145,15 @@
           },
           "realestate-1": {
             "clientName": "黃先生",
-            "summary": "黃先生尋找三房信譯區，預算三千萬以內，希望有車位，且不喜歡頂樓。這週六下午帶他看兩間。",
+            "summary": "黃先生尋找三房公寓，預算三千萬以內，希望有車位，不喜歡頂樓。這週六下午帶他看兩間。",
             "preferences": [
-              {
-                "category": "STYLE",
-                "value": "不喜歡金色"
-              },
               {
                 "category": "BUDGET",
                 "value": "預算約三千萬以內"
+              },
+              {
+                "category": "STYLE",
+                "value": "不喜歡頂樓"
               }
             ],
             "wishlist": [],
@@ -164,20 +168,20 @@
             ]
           },
           "beauty-1": {
-            "clientName": "M.M",
-            "summary": "M.M今天做臉，是敏感肌，對酒精過敏，喜歡五香味的保養品，下次是11月12號，生日是12月25號。",
+            "clientName": "Amy",
+            "summary": "Amy今天做臉，是敏感肌且對酒精過敏，喜歡無香味的保養品，下次是11月12號，是生日。",
             "preferences": [
               {
                 "category": "STYLE",
-                "value": "敏感肌"
+                "value": "喜歡無香味的保養品"
+              },
+              {
+                "category": "SIZE",
+                "value": "不確定"
               },
               {
                 "category": "AVOID",
                 "value": "酒精"
-              },
-              {
-                "category": "SIZE",
-                "value": "喜歡五香味"
               }
             ],
             "wishlist": [],
@@ -191,7 +195,7 @@
             ],
             "reminders": [
               {
-                "title": "M.M 回訪",
+                "title": "Amy 回訪",
                 "type": "VISIT",
                 "date": "2026-11-12",
                 "repeat": "MONTHLY"
@@ -200,7 +204,7 @@
           },
           "fashion-1": {
             "clientName": "李太太",
-            "summary": "李太太買了一件羊毛大衣，穿M號，喜歡深色系，不喜歡太花的圖案，對咖啡色的包包有興趣，想等周年慶。",
+            "summary": "李太太購買了羊毛大衣，穿M號，喜歡深色系，不喜歡太花的圖案，對咖啡色包包有興趣，但覺得有點貴，周年慶開始11月1號，會通知她。",
             "preferences": [
               {
                 "category": "STYLE",
@@ -228,15 +232,19 @@
           },
           "jewelry-2": {
             "clientName": "劉姐",
-            "summary": "劉姐和女兒來挑婚戒，婚禮11月28號，需要交貨。",
+            "summary": "劉姐和女兒來挑婚戒，喜歡減約款，白金材質。婚禮是11月28日，11月14日前要交貨。",
             "preferences": [
               {
                 "category": "STYLE",
-                "value": "喜歡撿約款"
+                "value": "減約款"
               },
               {
-                "category": "BUDGET",
-                "value": "預算約白金"
+                "category": "MATERIAL",
+                "value": "白金"
+              },
+              {
+                "category": "MATERIAL",
+                "value": "婚禮"
               }
             ],
             "wishlist": [],
@@ -271,11 +279,11 @@
           "dates": 1.0,
           "reminder_date": 0.875,
           "reminder_repeat": 0.875,
-          "prefs": 0.55,
+          "prefs": 0.65,
           "wish": 0.0
         },
-        "overall": 0.704,
-        "llm_avg_s": 0.96,
+        "overall": 0.741,
+        "llm_avg_s": 0.9,
         "json_failures": 0,
         "outputs": {
           "jewelry-1": {
@@ -317,15 +325,15 @@
           },
           "watch-1": {
             "clientName": "王董",
-            "summary": "王董習慣戴四十毫米的勞力士錶，不喜歡金色，下次是四月十五號保養新款潛航者。",
+            "summary": "王董需要保養勞力士錶，喜歡四十毫米錶，不喜歡金色。錶每半年要保養一次，下次是四月十五號。他對新款潛航者有興趣。",
             "preferences": [
               {
                 "category": "STYLE",
-                "value": "勞力士錶"
+                "value": "戴四十毫米錶"
               },
               {
-                "category": "BUDGET",
-                "value": "錶價格約五十美元"
+                "category": "MATERIAL",
+                "value": "不喜歡金色"
               }
             ],
             "wishlist": [],
@@ -341,7 +349,7 @@
           },
           "insurance-1": {
             "clientName": "林先生",
-            "summary": "與林先生討論儲蓄險續約，重視小孩的教育基金。",
+            "summary": "與林先生討論儲蓄險續約，考慮小孩的教育基金。",
             "preferences": [
               {
                 "category": "BUDGET",
@@ -398,15 +406,11 @@
           },
           "realestate-1": {
             "clientName": "黃先生",
-            "summary": "黃先生尋找信義區三房，預算三千萬以內，希望有車位，不喜歡頂樓。這週六下午帶他看兩間，十月十七號。}可能是想找三房房，預算充足，希望有車位，不喜歡頂樓。",
+            "summary": "黃先生在信義區尋找三房公寓，預算三千萬以內，希望有車位，不喜歡頂樓。這週六下午帶他看兩間，十月十七號。】arian_preference:{",
             "preferences": [
               {
                 "category": "STYLE",
                 "value": "不喜歡頂樓"
-              },
-              {
-                "category": "BUDGET",
-                "value": "預算約三千萬以內"
               }
             ],
             "wishlist": [],
@@ -422,15 +426,11 @@
           },
           "beauty-1": {
             "clientName": "Amy",
-            "summary": "Amy是敏感肌，對酒精過敏，喜歡無香味的保養品，每個月固定來一次，下次是十一月十二號，生日是十二月二十五號。",
+            "summary": "Amy是敏感肌，對酒精過敏，喜歡無香味的保養品，每個月固定來一次，下次是十一月十二號。",
             "preferences": [
               {
                 "category": "SIZE",
-                "value": "不確定"
-              },
-              {
-                "category": "AVOID",
-                "value": "酒精"
+                "value": "喜歡無香味的保養品"
               }
             ],
             "wishlist": [],
@@ -522,34 +522,34 @@
     "gemma3:4b": {
       "from_audio": {
         "field_recall": {
-          "name": 0.875,
+          "name": 1.0,
           "dates": 1.0,
           "reminder_date": 1.0,
           "reminder_repeat": 1.0,
-          "prefs": 0.45,
-          "wish": 0.4
+          "prefs": 0.5,
+          "wish": 0.6
         },
-        "overall": 0.722,
-        "llm_avg_s": 2.01,
+        "overall": 0.778,
+        "llm_avg_s": 2.24,
         "json_failures": 0,
         "outputs": {
           "jewelry-1": {
             "clientName": "陳美玲",
-            "summary": "陳美玲喜歡祖母綠，預算約15萬，想與丈夫一同回店看鑽石項鍊。",
+            "summary": "陳美玲對足母綠飾品有興趣，預算約十五萬，並考慮購買鑽石項鍊。",
             "preferences": [
               {
                 "category": "STYLE",
-                "value": "喜歡祖母綠"
+                "value": "喜歡足母綠"
               },
               {
                 "category": "BUDGET",
-                "value": "預算約15萬"
+                "value": "預算約十五萬"
               }
             ],
             "wishlist": [
               {
                 "item": "鑽石項鍊",
-                "hesitation": "想與丈夫一同來看"
+                "hesitation": "想等老公一起來看"
               }
             ],
             "importantDates": [
@@ -577,11 +577,11 @@
           },
           "watch-1": {
             "clientName": "王董",
-            "summary": "王董今天來保養他的勞力是，對新款的前行者有興趣。",
+            "summary": "王董今天來保養他的勞力，對新款潛航者有興趣。",
             "preferences": [
               {
                 "category": "SIZE",
-                "value": "習慣帶40毫米的錶"
+                "value": "40毫米"
               },
               {
                 "category": "STYLE",
@@ -590,13 +590,14 @@
             ],
             "wishlist": [
               {
-                "item": "新款前行者"
+                "item": "潛航者",
+                "hesitation": "新款"
               }
             ],
             "importantDates": [],
             "reminders": [
               {
-                "title": "王董 保養",
+                "title": "王董勞力保養",
                 "type": "MAINTENANCE",
                 "date": "2027-04-15",
                 "repeat": "HALF_YEARLY"
@@ -615,7 +616,7 @@
             "wishlist": [],
             "importantDates": [
               {
-                "label": "太太生日",
+                "label": "生日",
                 "month": 7,
                 "day": 2,
                 "next": "2027-07-02"
@@ -638,18 +639,18 @@
           },
           "car-1": {
             "clientName": "張小姐",
-            "summary": "張小姐試駕休旅車，並表示需等年終獎金後再做決定。",
+            "summary": "張小姐試駕休旅車，並表達了對白色車款的喜好和七人座的需求。",
             "preferences": [
               {
                 "category": "STYLE",
-                "value": "偏好白色"
+                "value": "喜歡白色"
               }
             ],
             "wishlist": [],
             "importantDates": [],
             "reminders": [
               {
-                "title": "張小姐年終後聯絡",
+                "title": "跟進 張小姐",
                 "type": "FOLLOW_UP",
                 "date": "2027-01-10",
                 "repeat": "NONE"
@@ -658,7 +659,7 @@
           },
           "realestate-1": {
             "clientName": "黃先生",
-            "summary": "黃先生在找信譯區的三房，預算三千萬以內，有車位需求，不喜歡頂樓。",
+            "summary": "黃先生尋找新一區的三房住宅，預算三千萬以內，有車位需求，不喜歡頂樓。",
             "preferences": [],
             "wishlist": [],
             "importantDates": [],
@@ -672,20 +673,24 @@
             ]
           },
           "beauty-1": {
-            "clientName": "M.M",
-            "summary": "M.M 進行臉部保養，且有敏感肌及對酒精過敏的狀況。",
+            "clientName": "Amy",
+            "summary": "Amy對敏感肌膚保養品有特定需求，下次預約於11月12號。",
             "preferences": [
               {
                 "category": "SIZE",
-                "value": "不確定"
+                "value": "無特定尺寸要求"
               },
               {
                 "category": "MATERIAL",
-                "value": "喜歡五香味的保養品"
+                "value": "對酒精過敏"
               },
               {
-                "category": "SIZE",
-                "value": "敏感肌"
+                "category": "AVOID",
+                "value": "不喜歡有香味的保養品"
+              },
+              {
+                "category": "OTHER",
+                "value": "敏感肌膚"
               }
             ],
             "wishlist": [],
@@ -699,7 +704,7 @@
             ],
             "reminders": [
               {
-                "title": "M.M 每月保養",
+                "title": "Amy做臉",
                 "type": "MAINTENANCE",
                 "date": "2026-11-12",
                 "repeat": "MONTHLY"
@@ -708,7 +713,7 @@
           },
           "fashion-1": {
             "clientName": "李太太",
-            "summary": "李太太購買羊毛大衣，並對咖啡色包包感興趣。",
+            "summary": "李太太購買羊毛大衣，對咖啡色包包有興趣，並期待11月1日周年慶通知。",
             "preferences": [
               {
                 "category": "SIZE",
@@ -748,8 +753,21 @@
           },
           "jewelry-2": {
             "clientName": "劉姐",
-            "summary": "劉姐和女兒討論婚戒，預計11月14日前交貨。",
-            "preferences": [],
+            "summary": "劉姐和女兒討論婚戒，預計11月28日婚禮，11月14日前要交貨。",
+            "preferences": [
+              {
+                "category": "STYLE",
+                "value": "婚戒"
+              },
+              {
+                "category": "MATERIAL",
+                "value": "白金材質"
+              },
+              {
+                "category": "SIZE",
+                "value": "減約款"
+              }
+            ],
             "wishlist": [],
             "importantDates": [
               {
@@ -761,7 +779,7 @@
             ],
             "reminders": [
               {
-                "title": "婚戒交貨",
+                "title": "婚禮商品交貨",
                 "type": "MAINTENANCE",
                 "date": "2026-11-14",
                 "repeat": "NONE"
@@ -786,7 +804,7 @@
           "wish": 0.6
         },
         "overall": 0.796,
-        "llm_avg_s": 2.08,
+        "llm_avg_s": 2.14,
         "json_failures": 0,
         "outputs": {
           "jewelry-1": {
@@ -850,14 +868,14 @@
             ],
             "wishlist": [
               {
-                "item": "潛航者",
-                "hesitation": "新款"
+                "item": "新款潛航者",
+                "hesitation": "尚未決定是否購買"
               }
             ],
             "importantDates": [],
             "reminders": [
               {
-                "title": "王董 保養",
+                "title": "勞力士半年保養",
                 "type": "MAINTENANCE",
                 "date": "2027-04-15",
                 "repeat": "HALF_YEARLY"
@@ -924,7 +942,7 @@
           },
           "beauty-1": {
             "clientName": "Amy",
-            "summary": "Amy對敏感肌膚保養品有需求，並確認了11月12日再次服務。",
+            "summary": "Amy對敏感肌膚保養品有需求，下次回店是11月12號。",
             "preferences": [
               {
                 "category": "SIZE",
@@ -954,8 +972,8 @@
             ],
             "reminders": [
               {
-                "title": "Amy做臉",
-                "type": "MAINTENANCE",
+                "title": "Amy回店",
+                "type": "VISIT",
                 "date": "2026-11-12",
                 "repeat": "MONTHLY"
               }
@@ -994,7 +1012,7 @@
             ],
             "reminders": [
               {
-                "title": "週年慶通知李太太",
+                "title": "通知李太太週年慶",
                 "type": "VISIT",
                 "date": "2026-11-01",
                 "repeat": "NONE"
@@ -1049,35 +1067,17 @@
           "reminder_date": 0.875,
           "reminder_repeat": 0.875,
           "prefs": 0.55,
-          "wish": 0.6
+          "wish": 0.4
         },
-        "overall": 0.722,
-        "llm_avg_s": 5.04,
+        "overall": 0.704,
+        "llm_avg_s": 5.55,
         "json_failures": 2,
         "outputs": {
           "jewelry-1": {
-            "clientName": "陳美玲",
-            "summary": "陳美玲對祖母綠色飾品有興趣，約下週三再回店。",
-            "preferences": [
-              {
-                "category": "STYLE",
-                "value": "喜歡祖母綠"
-              },
-              {
-                "category": "SIZE",
-                "value": "介為11號"
-              },
-              {
-                "category": "BUDGET",
-                "value": "預算約15萬"
-              }
-            ],
-            "wishlist": [
-              {
-                "item": "鑽石項鍊",
-                "hesitation": "想等老公一起來看"
-              }
-            ],
+            "clientName": "",
+            "summary": "",
+            "preferences": [],
+            "wishlist": [],
             "importantDates": [
               {
                 "label": "生日",
@@ -1094,7 +1094,7 @@
             ],
             "reminders": [
               {
-                "title": "陳美玲 回訪",
+                "title": "客戶 回訪",
                 "type": "VISIT",
                 "date": "2026-10-21",
                 "repeat": "NONE"
@@ -1103,11 +1103,11 @@
           },
           "watch-1": {
             "clientName": "王董",
-            "summary": "王董今天來保養他的勞力錶,他習慣帶40毫米的錶,不喜歡金色,錶每半年要保養一次。",
+            "summary": "王董對新款的潛航者錶有興趣，約4月15號來保養。",
             "preferences": [
               {
                 "category": "SIZE",
-                "value": "習慣帶40毫米的錶"
+                "value": "喜歡40毫米"
               },
               {
                 "category": "STYLE",
@@ -1116,12 +1116,16 @@
               {
                 "category": "MATERIAL",
                 "value": "每半年要保養一次"
+              },
+              {
+                "category": "BUDGET",
+                "value": "預算約不明"
               }
             ],
             "wishlist": [
               {
-                "item": "前行者",
-                "hesitation": "對新款有興趣"
+                "item": "新款的潛航者錶",
+                "hesitation": "因為以前的錶有問題"
               }
             ],
             "importantDates": [],
@@ -1135,9 +1139,38 @@
             ]
           },
           "insurance-1": {
-            "clientName": "",
-            "summary": "",
-            "preferences": [],
+            "clientName": "林先生",
+            "summary": "林先生談完儲蓄險，提到小孩教育基金，生日是7月2日。",
+            "preferences": [
+              {
+                "category": "BUDGET",
+                "value": "每年預算大概十萬"
+              },
+              {
+                "category": "BUDGET",
+                "value": "比較在意小孩的教育基金"
+              },
+              {
+                "category": "BUDGET",
+                "value": "每年11月30日續約保單"
+              },
+              {
+                "category": "BUDGET",
+                "value": "11月20日續約保單提醒"
+              },
+              {
+                "category": "BUDGET",
+                "value": "不喜歡超額支出"
+              },
+              {
+                "category": "BUDGET",
+                "value": "不喜歡超額支出"
+              },
+              {
+                "category": "BUDGET",
+                "value": "不喜歡超額支出"
+              }
+            ],
             "wishlist": [],
             "importantDates": [
               {
@@ -1149,13 +1182,13 @@
             ],
             "reminders": [
               {
-                "title": "跟進 客戶",
-                "type": "FOLLOW_UP",
+                "title": "林先生續約保單提醒",
+                "type": "MAINTENANCE",
                 "date": "2026-11-20",
                 "repeat": "NONE"
               },
               {
-                "title": "跟進 客戶",
+                "title": "跟進 林先生",
                 "type": "FOLLOW_UP",
                 "date": "2026-11-30",
                 "repeat": "NONE"
@@ -1164,15 +1197,27 @@
           },
           "car-1": {
             "clientName": "張小姐",
-            "summary": "張小姐今天試駕休旅車,她偏好白色,家裡有兩個小孩所已需要妻人做。她說要等年終獎金,1月10號再聯絡她,她的車美季要回倉檢查。",
+            "summary": "張小姐今天試駕休旅車,她偏好白色,家裡有兩個小孩所以需要七人坐。她說要等年中獎金,1月10日再聯絡她,她的車每季要回場檢查。",
             "preferences": [
               {
                 "category": "STYLE",
                 "value": "喜歡白色"
               },
               {
-                "category": "STYLE",
-                "value": "家裡有兩個小孩,需要妻人做"
+                "category": "SIZE",
+                "value": "需要七人坐"
+              },
+              {
+                "category": "BUDGET",
+                "value": "等年中獎金"
+              },
+              {
+                "category": "SIZE",
+                "value": "回場檢查每季"
+              },
+              {
+                "category": "SIZE",
+                "value": "需要七人坐"
               }
             ],
             "wishlist": [],
@@ -1188,19 +1233,15 @@
           },
           "realestate-1": {
             "clientName": "黃先生",
-            "summary": "黃先生在找信譯區的三房,預算三千萬以內,希望有車位,不要頂樓。這週六下午帶他看兩間,10月17號。",
+            "summary": "黃先生在找新一區的三房,預算三千萬以內,希望有車位,不要頂樓。這週六下午帶他看兩間,10月17日.",
             "preferences": [
               {
                 "category": "STYLE",
-                "value": "喜歡信譯區"
+                "value": "希望有車位"
               },
               {
                 "category": "BUDGET",
-                "value": "預算約三千萬以內"
-              },
-              {
-                "category": "STYLE",
-                "value": "希望有車位"
+                "value": "預算三千萬以內"
               },
               {
                 "category": "STYLE",
@@ -1208,11 +1249,15 @@
               },
               {
                 "category": "STYLE",
-                "value": "不喜歡金色"
+                "value": "喜歡車位"
               },
               {
                 "category": "STYLE",
-                "value": "喜歡白色"
+                "value": "喜歡三房"
+              },
+              {
+                "category": "STYLE",
+                "value": "喜歡新區"
               }
             ],
             "wishlist": [],
@@ -1250,7 +1295,7 @@
           },
           "fashion-1": {
             "clientName": "李太太",
-            "summary": "李太太買了一件羊毛大衣,她穿M號,喜歡深色系,不喜歡太花的圖案。她對那個咖啡色的包包有興趣,但覺得有點貴,想等周年慶,周年慶開始是11月1號,到時候通知她。",
+            "summary": "李太太買了一件羊毛大衣,她穿M號,喜歡深色系,不喜歡太花的圖案。她對那個咖啡色的包包有興趣,但覺得有點貴,想等周年慶。",
             "preferences": [
               {
                 "category": "SIZE",
@@ -1274,11 +1319,7 @@
               },
               {
                 "category": "BUDGET",
-                "value": "周年慶開始是11月1號"
-              },
-              {
-                "category": "BUDGET",
-                "value": "到時候通知她"
+                "value": "預算約三萬"
               }
             ],
             "wishlist": [
@@ -1298,36 +1339,27 @@
             "reminders": []
           },
           "jewelry-2": {
-            "clientName": "VIP劉姐",
-            "summary": "劉姐跟女兒挑選婚戒，喜歡撿約款，白金才值，生日是5月20號，婚禮是11月28號。",
+            "clientName": "劉姐",
+            "summary": "劉姐跟女兒挑選婚戒，喜歡減約款，白金材質，生日是5月20日，婚禮是11月28日。",
             "preferences": [
               {
                 "category": "STYLE",
-                "value": "喜歡撿約款,白金才值"
+                "value": "喜歡減約款,白金材質"
+              },
+              {
+                "category": "BUDGET",
+                "value": "喜歡減約款"
+              },
+              {
+                "category": "STYLE",
+                "value": "喜歡珍珠"
               },
               {
                 "category": "BUDGET",
                 "value": "預算約三萬"
-              },
-              {
-                "category": "SIZE",
-                "value": "戒圍 11 號"
-              },
-              {
-                "category": "STYLE",
-                "value": "喜歡金色"
-              },
-              {
-                "category": "SIZE",
-                "value": "尺寸不明"
               }
             ],
-            "wishlist": [
-              {
-                "item": "婚戒",
-                "hesitation": "女兒下個月要結婚,想挑婚戒"
-              }
-            ],
+            "wishlist": [],
             "importantDates": [
               {
                 "label": "生日",
@@ -1338,13 +1370,13 @@
             ],
             "reminders": [
               {
-                "title": "跟進 VIP劉姐",
+                "title": "跟進 劉姐",
                 "type": "FOLLOW_UP",
                 "date": "2026-11-14",
                 "repeat": "NONE"
               },
               {
-                "title": "跟進 VIP劉姐",
+                "title": "跟進 劉姐",
                 "type": "FOLLOW_UP",
                 "date": "2026-11-28",
                 "repeat": "NONE"
@@ -1355,20 +1387,20 @@
       },
       "from_clean_text": {
         "field_recall": {
-          "name": 0.625,
+          "name": 0.5,
           "dates": 1.0,
           "reminder_date": 0.875,
           "reminder_repeat": 0.875,
-          "prefs": 0.55,
+          "prefs": 0.5,
           "wish": 0.6
         },
-        "overall": 0.704,
-        "llm_avg_s": 6.99,
-        "json_failures": 3,
+        "overall": 0.667,
+        "llm_avg_s": 10.24,
+        "json_failures": 4,
         "outputs": {
           "jewelry-1": {
             "clientName": "陳美玲",
-            "summary": "陳美玲對祖母綠色飾品有興趣，考慮購買鑽石項鍊，約下週三回店。",
+            "summary": "陳美玲對祖母綠色飾品有興趣，考慮購買鑽石項鍊，但想等老公一起來看。",
             "preferences": [
               {
                 "category": "STYLE",
@@ -1413,31 +1445,14 @@
             ]
           },
           "watch-1": {
-            "clientName": "王董",
-            "summary": "王董今天來保養他的勞力士，對新款的潛航者有興趣。",
-            "preferences": [
-              {
-                "category": "STYLE",
-                "value": "喜歡四十毫米的錶"
-              },
-              {
-                "category": "STYLE",
-                "value": "不喜歡金色"
-              },
-              {
-                "category": "MATERIAL",
-                "value": "每半年要保養一次"
-              },
-              {
-                "category": "STYLE",
-                "value": "喜歡潛航者"
-              }
-            ],
+            "clientName": "",
+            "summary": "",
+            "preferences": [],
             "wishlist": [],
             "importantDates": [],
             "reminders": [
               {
-                "title": "王董 保養",
+                "title": "客戶 保養",
                 "type": "MAINTENANCE",
                 "date": "2027-04-15",
                 "repeat": "HALF_YEARLY"
@@ -1505,19 +1520,7 @@
               },
               {
                 "category": "STYLE",
-                "value": "不喜歡金色"
-              },
-              {
-                "category": "STYLE",
-                "value": "喜歡白色"
-              },
-              {
-                "category": "STYLE",
-                "value": "喜歡黑色"
-              },
-              {
-                "category": "STYLE",
-                "value": "喜歡木材"
+                "value": "喜歡三房"
               }
             ],
             "wishlist": [],
@@ -1572,28 +1575,16 @@
               {
                 "category": "STYLE",
                 "value": "喜歡咖啡色"
-              },
-              {
-                "category": "BUDGET",
-                "value": "覺得有點貴"
-              },
-              {
-                "category": "BUDGET",
-                "value": "想等週年慶"
-              },
-              {
-                "category": "BUDGET",
-                "value": "預算約不明"
               }
             ],
             "wishlist": [
               {
                 "item": "咖啡色包包",
-                "hesitation": "覺得有點貴"
+                "hesitation": "貴"
               },
               {
                 "item": "羊毛大衣",
-                "hesitation": "已經買了"
+                "hesitation": "週年慶"
               }
             ],
             "importantDates": [
@@ -1615,12 +1606,20 @@
                 "value": "喜歡簡約款"
               },
               {
-                "category": "MATERIAL",
+                "category": "STYLE",
                 "value": "喜歡白金材質"
               },
               {
                 "category": "BUDGET",
-                "value": "預算約十萬"
+                "value": "預算約不明"
+              },
+              {
+                "category": "STYLE",
+                "value": "喜歡珠子"
+              },
+              {
+                "category": "STYLE",
+                "value": "喜歡金色"
               }
             ],
             "wishlist": [
@@ -1657,13 +1656,13 @@
     }
   },
   "transcripts": {
-    "jewelry-1": "剛剛接待陳美玲,她喜歡祖母綠,介為11號,預算大概15萬。她生日是3月8號,結婚紀念日是10月22號。她在考慮那條鑽石項鍊,但想等老公一起來看,下週三再約她回店。",
-    "watch-1": "王董今天來保養他的勞力是,他習慣帶40毫米的錶,不喜歡金色,錶每半年要保養一次。下次是4月15號,他對新款的前行者有興趣。",
-    "insurance-1": "跟林先生談完儲蓄險,他每年預算大概十萬,比較在意小孩的教育基金。他的保單每年11月30號要續約,我11月20號先提醒他,他太太生日是7月2號。",
-    "car-1": "張小姐今天試駕休旅車,她偏好白色,家裡有兩個小孩所已需要妻人做。她說要等年終獎金,1月10號再聯絡她,她的車美季要回倉檢查。",
-    "realestate-1": "黃先生在找信譯區的三房,預算三千萬以內,希望有車位,不要頂樓。這週六下午帶他看兩間,10月17號。",
-    "beauty-1": "M.M今天做臉,他是敏感肌,對酒精過敏,喜歡五香味的保養品。他每個月固定來一次,下次是11月12號,他生日是12月25號。",
-    "fashion-1": "李太太買了一件羊毛大衣,她穿M號,喜歡深色系,不喜歡太花的圖案。她對那個咖啡色的包包有興趣,但覺得有點貴,想等周年慶,周年慶開始是11月1號,到時候通知她。",
-    "jewelry-2": "VIP劉姐跟她女兒一起來,女兒下個月要結婚,想挑婚戒,喜歡撿約款,白金才值。劉姐自己的結婚紀念日是5月20號,每年都會來挑禮物,婚禮是11月28號,11月14號前要交貨。"
+    "jewelry-1": "剛剛接待陳美玲,她喜歡足母綠,借為十一號,預算大概十五萬。她生日是三月八號,結婚紀念日是十月二十二號。她在考慮那條鑽石項鍊,但想等老公一起來看,下週三再約她回店。",
+    "watch-1": "王董今天來保養他的勞力是﹐他喜歡帶40毫米的錶﹐不喜歡金色﹐錶每半年要保養一次﹐下次是4月15號﹐他就新款的潛航者有興趣。",
+    "insurance-1": "跟林先生談完儲蓄險,他每年預算大概十萬,比較在意小孩的教育基金。他的保單每年11月30日要續約,我11月20日先提醒他。他太太生日是7月2日。",
+    "car-1": "張小姐今天試駕休旅車,她偏好白色,家裡有兩個小孩所以需要七人坐。她說要等年中獎金,1月10日再聯絡她,她的車每季要回場檢查。",
+    "realestate-1": "黃先生在找新一區的三房,預算三千萬以內,希望有車位,不要頂樓。這週六下午帶他看兩間,10月17日。",
+    "beauty-1": "Amy今天做臉,她是敏感肌,對酒精過敏,喜歡無香味的保養品。她每個月固定來一次,下次是11月12號,她生日是12月25號。",
+    "fashion-1": "李太太買了一件羊毛大衣,她穿M號,喜歡深色系,不喜歡太花的圖案。她對那個咖啡色的包包有興趣,但覺得有點貴,想等周年慶。周年慶開始是11月1號,到時候通知她。",
+    "jewelry-2": "VIP劉姐跟她女兒一起來,她女兒下個月要結婚,想挑婚戒,喜歡減約款,白金材質。劉姐自己的結婚紀念日是5月20日,每年都會來挑禮物。婚禮是11月28日,11月14日前要交貨。"
   }
 }

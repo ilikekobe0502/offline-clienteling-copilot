@@ -1,6 +1,6 @@
 """Benchmark: transcribe each memo once, then score every LLM field by field.
 
-Usage: /opt/homebrew/bin/python3 -m bench.run   (from the repo root)
+Usage: python3 -m bench.run   (from the repo root)
 """
 from __future__ import annotations
 

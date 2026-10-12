@@ -1,29 +1,29 @@
 {
  "demo": {
-  "transcript": "王董今天來保養他的勞力是,他習慣帶40毫米的錶,不喜歡金色,錶每半年要保養一次。下次是4月15號,他對新款的前行者有興趣。",
-  "stt_s": 0.75,
-  "llm_s": 1.72,
+  "transcript": "王董今天來保養他的勞力是，他喜歡帶40毫米的錶，不喜歡金色，錶每半年要保養一次，下次是4月15號，他就新款的潛航者有興趣。",
+  "stt_s": 0.99,
+  "llm_s": 2.31,
   "client": "王董",
   "preferences": "40毫米 · 不喜歡金色",
-  "wishlist": "新款前行者",
+  "wishlist": "潛航者",
   "reminder": "2027-04-15 · 王董 保養 · ↻ every 6 months"
  },
  "models": [
   {
    "name": "Gemma 3 1B",
-   "accuracy": 0.648,
-   "seconds": 1.2
+   "accuracy": 0.704,
+   "seconds": 1.0
   },
   {
    "name": "Gemma 3 4B",
-   "accuracy": 0.722,
-   "seconds": 2.0
+   "accuracy": 0.778,
+   "seconds": 2.2
   },
   {
    "name": "Llama 3.2 3B",
-   "accuracy": 0.722,
-   "seconds": 5.0
+   "accuracy": 0.704,
+   "seconds": 5.6
   }
  ],
- "takeaway": "Gemma 3 4B: 100% on dates, reminders and recurrence, zero invalid outputs. Moving date arithmetic into code doubled the 1B model's accuracy, from 33% to 65%."
+ "takeaway": "Gemma 3 4B: 100% on dates, reminders and recurrence, zero invalid outputs. Moving date arithmetic into code doubled the 1B model's accuracy on our first audio set, from 33% to 65%."
 }

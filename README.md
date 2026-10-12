@@ -53,15 +53,15 @@ Eight Taiwanese-Mandarin sales memos (jewelry, watches, insurance, cars, real es
 
 | Language model | Fields correct, from audio | Fields correct, clean text | Seconds per memo (LLM) | Invalid outputs |
 |---|---|---|---|---|
-| Gemma 3 1B | 64.8% | 70.4% | 1.2 | 0 / 8 |
-| **Gemma 3 4B (selected)** | **72.2%** | **79.6%** | **2.0** | **0 / 8** |
-| Llama 3.2 3B | 72.2% | 70.4% | 5.0 | 2 / 8 |
+| Gemma 3 1B | 70.4% | 74.1% | 1.0 | 0 / 8 |
+| **Gemma 3 4B (selected)** | **77.8%** | **79.6%** | **2.2** | **0 / 8** |
+| Llama 3.2 3B | 70.4% | 66.7% | 5.6 | 2 / 8 |
 
-Whisper-small transcription averages **0.75 s** per memo; a full memo-to-record run on the laptop takes about **2.5 s**. Gemma 3 4B scores 100% on important dates, reminder dates and recurrence; preferences and wishlist items (45–60%) are the main Stage II target. The gap between audio and clean text is speech-recognition error (e.g. product names), which is why the consultant confirms each record before it is saved.
+Whisper-small transcription averages **0.83 s** per memo; a full memo-to-record run on the laptop takes about **3.1 s**. Gemma 3 4B scores 100% on important dates, reminder dates and recurrence; preferences and wishlist items (50–60%) are the main Stage II target. The gap between audio and clean text is speech-recognition error (e.g. product names), which is why the consultant confirms each record before it is saved.
 
-**Design lesson.** In the first run the model also had to compute dates ("next Wednesday") and recurrence. Gemma 3 1B scored 33%. Moving that arithmetic into deterministic code (`occ/dates.py`, `detect_repeat`) raised it to 65% at the same speed — the decision that makes a 1B-class model viable on edge hardware.
+**Design lesson.** In the first run the model also had to compute dates ("next Wednesday") and recurrence. Gemma 3 1B scored 33%. Moving that arithmetic into deterministic code (`occ/dates.py`, `detect_repeat`) raised it to 65% at the same speed (measured on our first synthesised audio set; on the current set it scores 70%) — the decision that makes a 1B-class model viable on edge hardware.
 
-Measured on an Apple M2 Max laptop as a proxy, with models of the size class the Hailo-10H targets. Audio was synthesised from scripted memos; Stage II will add real field recordings.
+Measured on an Apple M2 Max laptop as a proxy, with models of the size class the Hailo-10H targets. Audio was synthesised from scripted memos with Gemini text-to-speech, alternating a female and a male voice; Stage II will add real field recordings.
 
 ## Stage II plan (Nov 6 – Dec 4)
 
@@ -85,8 +85,14 @@ This repository contains only our own code and benchmark data. **No model weight
 
 The Stage II build on the UGen300 is planned around Whisper and Gemma 3 only, so the shipped system carries MIT and Gemma terms; Llama 3.2 is used for comparison and is not part of the deliverable.
 
-The benchmark audio in `bench/*.m4a` was synthesised from our own scripted memos with the macOS `say` command, and the demo video's narration was generated with the Gemini API text-to-speech. Both are test and presentation material, not part of the system.
+The benchmark audio in `bench/*.m4a` and the demo video's narration were generated from our own scripts with Gemini API text-to-speech (`bench/tts.py`, `video/tts.py`). Both are test and presentation material, not part of the system.
 
 ## Team
 
 Team HueiHe — HueiHe Tech (暉和智慧科技), Taipei.
+
+## License
+
+Copyright 2026 HueiHe Tech (暉和智慧科技).
+
+Licensed under the [Apache License, Version 2.0](LICENSE). Third-party models keep their own licences, listed above.
