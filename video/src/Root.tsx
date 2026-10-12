@@ -87,7 +87,7 @@ const S3: React.FC = () => {
 const S4: React.FC = () => {
   const f = useCurrentFrame();
   const demo = data.demo;
-  const cmd = '$ python3 -m occ.cli memos/watch-1.m4a --llm gemma3:4b';
+  const cmd = '$ python3 -m occ.cli bench/watch-1.m4a --llm gemma3:4b';
   const typed = cmd.slice(0, Math.floor(interpolate(f, [10, 70], [0, cmd.length], { extrapolateRight: 'clamp', extrapolateLeft: 'clamp' })));
   const rows: [string, string, boolean?][] = [
     ['client', demo.client],
@@ -154,19 +154,18 @@ const S5: React.FC = () => {
 const S6: React.FC = () => {
   const f = useCurrentFrame();
   const models = data.models as { name: string; accuracy: number; seconds: number }[];
-  const best = Math.max(...models.map((m) => m.accuracy));
   return (
     <AbsoluteFill style={{ background: C.bg, fontFamily: FONT, padding: 110, gap: 40 }}>
       <Eyebrow>Stage I results · laptop proxy, same model sizes</Eyebrow>
-      <div style={{ fontSize: 68, fontWeight: 700, color: C.ink }}>8 real-world sales memos, 3 on-device models</div>
+      <div style={{ fontSize: 68, fontWeight: 700, color: C.ink }}>8 scripted sales memos, 3 on-device models</div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 30, marginTop: 10 }}>
         {models.map((m, i) => {
           const w = interpolate(f, [40 + i * 30, 90 + i * 30], [0, m.accuracy], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
           return (
             <div key={m.name} style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
-              <div style={{ width: 300, fontSize: 36, fontWeight: 700, color: C.ink }}>{m.name}</div>
+              <div style={{ width: 300, fontSize: 36, fontWeight: 700, color: C.ink }}>{m.name}{m.name === 'Gemma 3 4B' ? ' ✓' : ''}</div>
               <div style={{ flex: 1, height: 64, background: '#E2E8F0', borderRadius: 12, overflow: 'hidden' }}>
-                <div style={{ width: `${w * 100}%`, height: '100%', background: m.accuracy === best ? C.teal : '#64748B', borderRadius: 12 }} />
+                <div style={{ width: `${w * 100}%`, height: '100%', background: m.name === 'Gemma 3 4B' ? C.teal : '#94A3B8', borderRadius: 12 }} />
               </div>
               <div style={{ width: 380, fontSize: 34, color: C.slate }}>{Math.round(m.accuracy * 100)}% fields · {m.seconds}s</div>
             </div>

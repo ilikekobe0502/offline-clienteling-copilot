@@ -6,3 +6,11 @@
 [stt] beauty-1: M.M今天做臉,他是敏感肌,對酒精過敏,喜歡五香味的保養品。他每個月固定來一次,下次是11月12號,他生日是12月25號。
 [stt] fashion-1: 李太太買了一件羊毛大衣,她穿M號,喜歡深色系,不喜歡太花的圖案。她對那個咖啡色的包包有興趣,但覺得有點貴,想等周年慶,周年慶開始是11月1號,到時候通知她。
 [stt] jewelry-2: VIP劉姐跟她女兒一起來,女兒下個月要結婚,想挑婚戒,喜歡撿約款,白金才值。劉姐自己的結婚紀念日是5月20號,每年都會來挑禮物,婚禮是11月28號,11月14號前要交貨。
+[gemma3:1b] audio 0.648 (1.19s) | clean text 0.704 | audio fields {'name': 0.875, 'dates': 1.0, 'reminder_date': 0.875, 'reminder_repeat': 0.875, 'prefs': 0.45, 'wish': 0.0}
+[gemma3:4b] audio 0.722 (2.01s) | clean text 0.796 | audio fields {'name': 0.875, 'dates': 1.0, 'reminder_date': 1.0, 'reminder_repeat': 1.0, 'prefs': 0.45, 'wish': 0.4}
+  [ollama/llama3.2:3b] insurance-1 failed: Unterminated string starting at: line 1 column 3942 (char 3941)
+  [ollama/llama3.2:3b] beauty-1 failed: Unterminated string starting at: line 1 column 3883 (char 3882)
+  [ollama/llama3.2:3b] insurance-1 failed: Unterminated string starting at: line 1 column 4325 (char 4324)
+  [ollama/llama3.2:3b] car-1 failed: Unterminated string starting at: line 1 column 4244 (char 4243)
+  [ollama/llama3.2:3b] beauty-1 failed: Unterminated string starting at: line 1 column 4381 (char 4380)
+[llama3.2:3b] audio 0.722 (5.04s) | clean text 0.704 | audio fields {'name': 0.75, 'dates': 1.0, 'reminder_date': 0.875, 'reminder_repeat': 0.875, 'prefs': 0.55, 'wish': 0.6}

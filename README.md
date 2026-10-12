@@ -51,7 +51,17 @@ python3 -m bench.run          # writes bench/results.json
 
 Eight Taiwanese-Mandarin sales memos (jewelry, watches, insurance, cars, real estate, beauty, fashion) with hand-written expected answers, synthesised to audio. Scored per field: client name, important dates, reminder date, reminder recurrence, preferences, wishlist. See `bench/results.json` for every transcript and model output.
 
-BENCHMARK_TABLE
+| Language model | Fields correct, from audio | Fields correct, clean text | Seconds per memo (LLM) | Invalid outputs |
+|---|---|---|---|---|
+| Gemma 3 1B | 64.8% | 70.4% | 1.2 | 0 / 8 |
+| **Gemma 3 4B (selected)** | **72.2%** | **79.6%** | **2.0** | **0 / 8** |
+| Llama 3.2 3B | 72.2% | 70.4% | 5.0 | 2 / 8 |
+
+Whisper-small transcription averages **0.75 s** per memo; a full memo-to-record run on the laptop takes about **2.5 s**. Gemma 3 4B scores 100% on important dates, reminder dates and recurrence; preferences and wishlist items (45–60%) are the main Stage II target. The gap between audio and clean text is speech-recognition error (e.g. product names), which is why the consultant confirms each record before it is saved.
+
+**Design lesson.** In the first run the model also had to compute dates ("next Wednesday") and recurrence. Gemma 3 1B scored 33%. Moving that arithmetic into deterministic code (`occ/dates.py`, `detect_repeat`) raised it to 65% at the same speed — the decision that makes a 1B-class model viable on edge hardware.
+
+Measured on an Apple M2 Max laptop as a proxy, with models of the size class the Hailo-10H targets. Audio was synthesised from scripted memos; Stage II will add real field recordings.
 
 ## Stage II plan (Nov 6 – Dec 4)
 
