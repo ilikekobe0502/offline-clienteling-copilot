@@ -70,6 +70,23 @@ Measured on an Apple M2 Max laptop as a proxy, with models of the size class the
 3. End-to-end on device; review UI; latency and power tuning (target ≤ 10 s from end of memo to record).
 4. Expanded test set with real field recordings; offline field test; final README, benchmarks and demo video.
 
+## Third-party models and licences
+
+This repository contains only our own code and benchmark data. **No model weights are included or redistributed**: the run instructions download each model from its original publisher, and anyone running the project accepts that publisher's terms.
+
+| Component | Used for | Licence | What it requires of us |
+|---|---|---|---|
+| Whisper small (OpenAI) | Speech-to-text | MIT (code and weights) | Keep the copyright and licence notice |
+| whisper.cpp / ggml (ggml-org) | Whisper runtime and `ggml-small.bin` conversion | MIT | Keep the copyright and licence notice |
+| Gemma 3 1B / 4B (Google) | Extraction (selected model) | [Gemma Terms of Use](https://ai.google.dev/gemma/terms) and [Prohibited Use Policy](https://ai.google.dev/gemma/prohibited_use_policy) | Commercial use allowed; pass the use restrictions on to anyone we redistribute Gemma or a derivative to |
+| Llama 3.2 3B (Meta) | Comparison only in the Stage I benchmark | [Llama 3.2 Community License](https://www.llama.com/llama3_2/license/) and [Acceptable Use Policy](https://www.llama.com/llama3_2/use-policy/) | Commercial use allowed below 700M monthly users; show "Built with Llama" if a distributed product includes it |
+| Ollama | Local model runtime (Stage I laptop) | MIT | Keep the copyright and licence notice |
+| Remotion | Rendering the demo video (`video/`) | [Remotion License](https://www.remotion.dev/license) | Free for individuals and companies of up to 3 people |
+
+The Stage II build on the UGen300 is planned around Whisper and Gemma 3 only, so the shipped system carries MIT and Gemma terms; Llama 3.2 is used for comparison and is not part of the deliverable.
+
+The benchmark audio in `bench/*.m4a` was synthesised from our own scripted memos with the macOS `say` command, and the demo video's narration was generated with the Gemini API text-to-speech. Both are test and presentation material, not part of the system.
+
 ## Team
 
 Team HueiHe — HueiHe Tech (暉和智慧科技), Taipei.
