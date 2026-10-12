@@ -1,0 +1,65 @@
+# Offline Clienteling Copilot
+
+**ASUS UGen AI League 2026 · Workplace AI · Battlefield Lightning (ASUS UGen300 / Hailo-10H)**
+
+An on-device AI assistant for retail and financial sales consultants. The consultant speaks a 30-second memo after a client leaves; the system turns it into a structured client record — preferences, wishlist, important dates and reminders — **without any audio, transcript or client data leaving the device**.
+
+## Why on-device
+
+Voice capture is the note-taking feature sales consultants value most, but employers in insurance, luxury retail and automotive ask one question first: *where does the recording go?* Personal-data regulation, client trust and unreliable store networks all make cloud processing a blocker. Running speech recognition and the language model on an ASUS UGen300 at the counter removes the cloud from the loop.
+
+## Architecture
+
+```
+ microphone ──► host PC ─────────────────────────────────► local SQLite
+               │ audio decode (16 kHz) · prompt · JSON validation · date & recurrence rules
+               │
+               └──► ASUS UGen300 (Hailo-10H, 40 TOPS INT4, 8 GB on-module)
+                     ① Whisper speech-to-text (small-class)
+                     ② 1B–4B-class instruction LLM, JSON-schema-constrained decoding
+```
+
+- **Swappable backends** (`occ/backends/`): `laptop.py` (whisper.cpp + Ollama) for Stage I; `hailo.py` keeps the same interface for the UGen300 port in Stage II, so `occ/pipeline.py` does not change.
+- **Schema-constrained decoding** (`occ/schema.py`): the runtime is given a JSON Schema, so even a 1B model returns valid, parseable output.
+- **Rules where rules win**: recurrence ("every six months", "every quarter") and birthday/anniversary detection are decided by deterministic keyword rules on the transcript; the LLM handles open-ended extraction. Dates are normalised so reminders are never in the past.
+- **Privacy guard**: the prompt forbids recording religion, politics or health details; audio is discarded after transcription.
+
+## Models (Stage I)
+
+| Stage | Model | Origin | Why |
+|---|---|---|---|
+| Speech-to-text | Whisper small (via whisper.cpp) | OpenAI | Small-class Whisper is supported on Hailo-10H |
+| Extraction | Gemma 3 1B / 4B, Llama 3.2 3B (via Ollama) | Google / Meta | Same size class the accelerator targets |
+
+## Run it
+
+Requirements: macOS or Linux, `ffmpeg`, `whisper-cpp`, `ollama`, Python 3.10+. No Python packages beyond the standard library.
+
+```bash
+# models
+curl -L -o models/ggml-small.bin https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin
+ollama pull gemma3:4b
+
+# one memo → client record (add --save to store it in the local SQLite file)
+python3 -m occ.cli bench/watch-1.m4a --llm gemma3:4b
+
+# benchmark: 8 sales memos × 3 models, field-level scoring
+python3 -m bench.run          # writes bench/results.json
+```
+
+## Stage I benchmark
+
+Eight Taiwanese-Mandarin sales memos (jewelry, watches, insurance, cars, real estate, beauty, fashion) with hand-written expected answers, synthesised to audio. Scored per field: client name, important dates, reminder date, reminder recurrence, preferences, wishlist. See `bench/results.json` for every transcript and model output.
+
+BENCHMARK_TABLE
+
+## Stage II plan (Nov 6 – Dec 4)
+
+1. Bring up UGen300 + HailoRT; run Whisper on Hailo-10H; match laptop transcripts.
+2. Deploy a 1B-class instruction model on Hailo-10H; port the schema-constrained prompt.
+3. End-to-end on device; review UI; latency and power tuning (target ≤ 10 s from end of memo to record).
+4. Expanded test set with real field recordings; offline field test; final README, benchmarks and demo video.
+
+## Team
+
+Team HueiHe — HueiHe Tech (暉和智慧科技), Taipei.

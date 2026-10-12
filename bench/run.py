@@ -52,19 +52,16 @@ def main() -> None:
         print(f"[stt] {c['id']}: {transcripts[c['id']]}", flush=True)
 
     report = {"today": TODAY.isoformat(), "stt": stt.name, "stt_avg_s": round(sum(stt_times) / len(stt_times), 2), "models": {}}
-    for m in MODELS:
-        llm = Ollama(m)
-        llm.generate_json(build_prompt("測試", TODAY), EXTRACTION_SCHEMA)  # warm-up, loads weights
-        totals: dict[str, list[int]] = {}
-        times, failures, outputs = [], 0, {}
+    def evaluate(llm, texts):
+        totals, times, failures, outputs = {}, [], 0, {}
         for c in cases:
             t0 = time.perf_counter()
             try:
-                rec = normalize(llm.generate_json(build_prompt(transcripts[c["id"]], TODAY), EXTRACTION_SCHEMA), TODAY)
-            except Exception as e:  # invalid JSON etc.
+                rec = normalize(llm.generate_json(build_prompt(texts[c["id"]], TODAY), EXTRACTION_SCHEMA), TODAY, texts[c["id"]])
+            except Exception as e:  # invalid JSON, runaway output, timeout
                 failures += 1
-                rec = normalize({}, TODAY)
-                print(f"  [{m}] {c['id']} failed: {e}")
+                rec = normalize({}, TODAY, texts[c["id"]])
+                print(f"  [{llm.name}] {c['id']} failed: {str(e)[:80]}", flush=True)
             times.append(time.perf_counter() - t0)
             outputs[c["id"]] = rec
             for k, (got, total) in score(rec, c["expect"]).items():
@@ -72,11 +69,22 @@ def main() -> None:
                 agg[0] += got
                 agg[1] += total
         fields = {k: round(g / t, 3) if t else None for k, (g, t) in totals.items()}
-        overall_g = sum(g for g, _ in totals.values())
-        overall_t = sum(t for _, t in totals.values())
-        report["models"][m] = {"field_recall": fields, "overall": round(overall_g / overall_t, 3),
-                               "llm_avg_s": round(sum(times) / len(times), 2), "json_failures": failures, "outputs": outputs}
-        print(f"[{m}] overall {report['models'][m]['overall']}  avg {report['models'][m]['llm_avg_s']}s  {fields}", flush=True)
+        overall = round(sum(g for g, _ in totals.values()) / sum(t for _, t in totals.values()), 3)
+        return {"field_recall": fields, "overall": overall, "llm_avg_s": round(sum(times) / len(times), 2), "json_failures": failures, "outputs": outputs}
+
+    clean = {c["id"]: c["text"] for c in cases}
+    for m in MODELS:
+        llm = Ollama(m)
+        try:  # warm-up, loads weights
+            llm.generate_json(build_prompt("王小姐喜歡白色。", TODAY), EXTRACTION_SCHEMA)
+        except Exception:
+            pass
+        audio_r = evaluate(llm, transcripts)
+        clean_r = evaluate(llm, clean)
+        report["models"][m] = {"from_audio": audio_r, "from_clean_text": clean_r}
+        print(f"[{m}] audio {audio_r['overall']} ({audio_r['llm_avg_s']}s) | clean text {clean_r['overall']} | audio fields {audio_r['field_recall']}", flush=True)
+        report["transcripts"] = transcripts
+        json.dump(report, open(os.path.join(HERE, "results.json"), "w"), ensure_ascii=False, indent=2)
 
     report["transcripts"] = transcripts
     json.dump(report, open(os.path.join(HERE, "results.json"), "w"), ensure_ascii=False, indent=2)

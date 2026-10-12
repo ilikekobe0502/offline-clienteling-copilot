@@ -55,7 +55,7 @@ class Pipeline:
         raw = self.llm.generate_json(build_prompt(transcript, today), EXTRACTION_SCHEMA)
         timing.llm_s = time.perf_counter() - t1
 
-        record = normalize(raw, today)
+        record = normalize(raw, today, transcript)
         return PipelineResult(transcript, record, timing, self.stt.name, self.llm.name)
 
 

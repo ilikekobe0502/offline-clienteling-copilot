@@ -52,9 +52,10 @@ class Ollama:
             "prompt": prompt,
             "format": schema,          # constrained decoding to the JSON schema
             "stream": False,
-            "options": {"temperature": self.temperature},
+            # 4k context: a 30-second memo plus the schema fits easily, and it mirrors the accelerator's memory budget
+            "options": {"temperature": self.temperature, "num_ctx": 4096, "num_predict": 1536},
         }).encode()
         req = urllib.request.Request(f"{OLLAMA_URL}/api/generate", data=body, headers={"Content-Type": "application/json"})
-        with urllib.request.urlopen(req, timeout=300) as resp:
+        with urllib.request.urlopen(req, timeout=120) as resp:
             text = json.load(resp)["response"]
         return json.loads(text)
