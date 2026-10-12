@@ -5,7 +5,7 @@ import data from './data.json';
 
 const FPS = 30;
 const PAD = 0.8; // seconds of breathing room after each narration line
-const C = { ink: '#0F172A', bg: '#F8FAFB', teal: '#0D9488', tealLight: '#5EEAD4', mint: '#CCFBF1', slate: '#475569', muted: '#94A3B8', card: '#FFFFFF', line: '#E2E8F0' };
+const C = { ink: '#111111', bg: '#FFFFFF', teal: '#4F46E5', tealLight: '#4F46E5', mint: '#E0E7FF', slate: '#5C5C66', muted: '#71717A', card: '#FFFFFF', line: '#E6E6EA', soft: '#F4F4F6', tint: '#EEF2FF', deep: '#4338CA' };
 const FONT = "'DM Sans', 'Helvetica Neue', Arial, sans-serif";
 const MONO = "'JetBrains Mono', Menlo, monospace";
 
@@ -25,11 +25,11 @@ const S1: React.FC = () => {
   const f = useCurrentFrame();
   const facts = ['Ring size 11', 'Loves emeralds', 'Anniversary · Oct 22', 'Budget ~ NT$150k'];
   return (
-    <AbsoluteFill style={{ background: C.ink, fontFamily: FONT, padding: 120, justifyContent: 'center', gap: 56 }}>
-      <div style={{ opacity: fadeIn(f), transform: `translateY(${rise(f)}px)`, fontSize: 78, fontWeight: 700, color: '#F8FAFC', lineHeight: 1.1 }}>A great consultant remembers everything.</div>
+    <AbsoluteFill style={{ background: C.bg, fontFamily: FONT, padding: 120, justifyContent: 'center', gap: 56 }}>
+      <div style={{ opacity: fadeIn(f), transform: `translateY(${rise(f)}px)`, fontSize: 78, fontWeight: 700, color: C.ink, lineHeight: 1.1 }}>A great consultant remembers everything.</div>
       <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap' }}>
         {facts.map((t, i) => (
-          <div key={t} style={{ opacity: fadeIn(f, 40 + i * 25), transform: `translateY(${rise(f, 40 + i * 25)}px)`, background: '#1E293B', border: `2px solid ${C.teal}`, color: C.mint, fontSize: 40, padding: '22px 34px', borderRadius: 18 }}>{t}</div>
+          <div key={t} style={{ opacity: fadeIn(f, 40 + i * 25), transform: `translateY(${rise(f, 40 + i * 25)}px)`, background: C.soft, border: `2px solid ${C.teal}`, color: C.ink, fontSize: 40, padding: '22px 34px', borderRadius: 18 }}>{t}</div>
         ))}
       </div>
       <div style={{ opacity: fadeIn(f, 300), fontSize: 46, color: C.muted }}>…but between clients, there is no time to write it down.</div>
@@ -64,21 +64,21 @@ const S3: React.FC = () => {
   const { fps } = useVideoConfig();
   const steps = [['Speak', '30-second memo'], ['On-device AI', 'ASUS UGen300'], ['Client record', 'Saved locally']];
   return (
-    <AbsoluteFill style={{ background: `linear-gradient(135deg, ${C.ink}, #10302E)`, fontFamily: FONT, padding: 120, justifyContent: 'center', gap: 64 }}>
+    <AbsoluteFill style={{ background: C.bg, fontFamily: FONT, padding: 120, justifyContent: 'center', gap: 64 }}>
       <Eyebrow dark>Introducing</Eyebrow>
-      <div style={{ fontSize: 110, fontWeight: 700, color: '#F8FAFC', transform: `scale(${spring({ frame: f, fps, config: { damping: 200 } })})`, transformOrigin: 'left' }}>Offline Clienteling Copilot</div>
+      <div style={{ fontSize: 110, fontWeight: 700, color: C.ink, transform: `scale(${spring({ frame: f, fps, config: { damping: 200 } })})`, transformOrigin: 'left' }}>Offline Clienteling Copilot</div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
         {steps.map(([h, p], i) => (
           <React.Fragment key={h}>
-            <div style={{ opacity: fadeIn(f, 110 + i * 45), background: i === 1 ? C.teal : '#1E293B', borderRadius: 22, padding: '34px 44px', minWidth: 380 }}>
-              <div style={{ fontSize: 46, fontWeight: 700, color: '#F8FAFC' }}>{h}</div>
-              <div style={{ fontSize: 30, color: i === 1 ? C.mint : C.muted, marginTop: 8 }}>{p}</div>
+            <div style={{ opacity: fadeIn(f, 110 + i * 45), background: i === 1 ? C.teal : C.soft, borderRadius: 22, padding: '34px 44px', minWidth: 380 }}>
+              <div style={{ fontSize: 46, fontWeight: 700, color: i === 1 ? '#FFFFFF' : C.ink }}>{h}</div>
+              <div style={{ fontSize: 30, color: i === 1 ? C.mint : C.slate, marginTop: 8 }}>{p}</div>
             </div>
             {i < 2 && <div style={{ opacity: fadeIn(f, 130 + i * 45), fontSize: 64, color: C.tealLight }}>→</div>}
           </React.Fragment>
         ))}
       </div>
-      <div style={{ opacity: fadeIn(f, 330), fontSize: 44, color: C.mint }}>Nothing is uploaded. Nothing leaves the device.</div>
+      <div style={{ opacity: fadeIn(f, 330), fontSize: 44, fontWeight: 700, color: C.teal }}>Nothing is uploaded. Nothing leaves the device.</div>
     </AbsoluteFill>
   );
 };
@@ -102,16 +102,16 @@ const S4: React.FC = () => {
         <div style={{ fontSize: 28, fontWeight: 700, color: '#B91C1C', background: '#FEF2F2', border: '2px solid #FECACA', borderRadius: 999, padding: '10px 24px' }}>Wi-Fi off</div>
       </div>
       <div style={{ display: 'flex', gap: 36, flex: 1 }}>
-        <div style={{ flex: 1.1, background: C.ink, borderRadius: 22, padding: 40, fontFamily: MONO, fontSize: 28, color: '#E2E8F0', lineHeight: 1.6, overflow: 'hidden' }}>
+        <div style={{ flex: 1.1, background: C.soft, borderRadius: 22, padding: 40, fontFamily: MONO, fontSize: 28, color: C.ink, lineHeight: 1.6, overflow: 'hidden' }}>
           <div style={{ color: C.tealLight }}>{typed}</div>
           <div style={{ opacity: fadeIn(f, 90), color: C.muted, marginTop: 16 }}>[whisper.cpp] transcribing… {demo.stt_s}s</div>
-          <div style={{ opacity: fadeIn(f, 110), marginTop: 10, fontFamily: FONT, fontSize: 32, color: '#F1F5F9' }}>{demo.transcript}</div>
+          <div style={{ opacity: fadeIn(f, 110), marginTop: 10, fontFamily: FONT, fontSize: 32, color: C.ink }}>{demo.transcript}</div>
           <div style={{ opacity: fadeIn(f, 260), color: C.muted, marginTop: 16 }}>[gemma3:4b] extracting with JSON schema… {demo.llm_s}s</div>
         </div>
         <div style={{ flex: 1, background: C.card, border: `1px solid ${C.line}`, borderRadius: 22, padding: 40, display: 'flex', flexDirection: 'column', gap: 24 }}>
           <div style={{ fontSize: 26, fontWeight: 700, color: C.teal, letterSpacing: 2, textTransform: 'uppercase' }}>Client record</div>
           {rows.map(([k, v, hl], i) => (
-            <div key={k} style={{ opacity: fadeIn(f, 300 + i * 40), transform: `translateY(${rise(f, 300 + i * 40)}px)`, background: hl ? '#ECFDF5' : 'transparent', border: hl ? `2px solid ${C.teal}` : 'none', borderRadius: 14, padding: hl ? 18 : 0 }}>
+            <div key={k} style={{ opacity: fadeIn(f, 300 + i * 40), transform: `translateY(${rise(f, 300 + i * 40)}px)`, background: hl ? C.tint : 'transparent', border: hl ? `2px solid ${C.teal}` : 'none', borderRadius: 14, padding: hl ? 18 : 0 }}>
               <div style={{ fontSize: 24, color: C.muted, textTransform: 'uppercase', letterSpacing: 2 }}>{k}</div>
               <div style={{ fontSize: 34, fontWeight: 600, color: C.ink, marginTop: 4 }}>{v}</div>
             </div>
@@ -126,9 +126,9 @@ const S4: React.FC = () => {
 const S5: React.FC = () => {
   const f = useCurrentFrame();
   const box = (title: string, body: string, start: number, accent = false) => (
-    <div style={{ opacity: fadeIn(f, start), transform: `translateY(${rise(f, start)}px)`, background: accent ? '#ECFDF5' : C.card, border: `3px solid ${accent ? C.teal : '#CBD5E1'}`, borderRadius: 22, padding: 36 }}>
-      <div style={{ fontSize: 40, fontWeight: 700, color: accent ? '#0F766E' : C.ink }}>{title}</div>
-      <div style={{ fontSize: 28, color: accent ? '#134E4A' : C.slate, marginTop: 12, lineHeight: 1.45, whiteSpace: 'pre-line' }}>{body}</div>
+    <div style={{ opacity: fadeIn(f, start), transform: `translateY(${rise(f, start)}px)`, background: accent ? C.tint : C.card, border: `3px solid ${accent ? C.teal : '#D4D4DA'}`, borderRadius: 22, padding: 36 }}>
+      <div style={{ fontSize: 40, fontWeight: 700, color: accent ? C.deep : C.ink }}>{title}</div>
+      <div style={{ fontSize: 28, color: accent ? '#3F3F46' : C.slate, marginTop: 12, lineHeight: 1.45, whiteSpace: 'pre-line' }}>{body}</div>
     </div>
   );
   return (
@@ -164,8 +164,8 @@ const S6: React.FC = () => {
           return (
             <div key={m.name} style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
               <div style={{ width: 300, fontSize: 36, fontWeight: 700, color: C.ink }}>{m.name}{m.name === 'Gemma 3 4B' ? ' ✓' : ''}</div>
-              <div style={{ flex: 1, height: 64, background: '#E2E8F0', borderRadius: 12, overflow: 'hidden' }}>
-                <div style={{ width: `${w * 100}%`, height: '100%', background: m.name === 'Gemma 3 4B' ? C.teal : '#94A3B8', borderRadius: 12 }} />
+              <div style={{ flex: 1, height: 64, background: C.soft, borderRadius: 12, overflow: 'hidden' }}>
+                <div style={{ width: `${w * 100}%`, height: '100%', background: m.name === 'Gemma 3 4B' ? C.teal : '#A1A1AA', borderRadius: 12 }} />
               </div>
               <div style={{ width: 380, fontSize: 34, color: C.slate }}>{Math.round(m.accuracy * 100)}% fields · {m.seconds}s</div>
             </div>
@@ -192,9 +192,9 @@ const S7: React.FC = () => {
           </div>
         ))}
       </div>
-      <div style={{ opacity: fadeIn(f, 330), background: C.ink, borderRadius: 24, padding: 48, display: 'flex', flexDirection: 'column', gap: 16 }}>
-        <div style={{ fontSize: 56, fontWeight: 700, color: '#F8FAFC' }}>The AI counter box</div>
-        <div style={{ fontSize: 34, color: C.mint }}>ASUS mini PC + UGen300, preinstalled · per-seat licence</div>
+      <div style={{ opacity: fadeIn(f, 330), background: C.soft, borderRadius: 24, padding: 48, display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <div style={{ fontSize: 56, fontWeight: 700, color: C.ink }}>The AI counter box</div>
+        <div style={{ fontSize: 34, color: C.teal }}>ASUS mini PC + UGen300, preinstalled · per-seat licence</div>
         <div style={{ fontSize: 32, color: C.muted }}>Insurance agencies · luxury brands · car dealers · real estate</div>
       </div>
     </AbsoluteFill>
@@ -205,8 +205,8 @@ const S7: React.FC = () => {
 const S8: React.FC = () => {
   const f = useCurrentFrame();
   return (
-    <AbsoluteFill style={{ background: `linear-gradient(135deg, ${C.ink}, #10302E)`, fontFamily: FONT, justifyContent: 'center', alignItems: 'center', gap: 28 }}>
-      <div style={{ opacity: fadeIn(f), fontSize: 100, fontWeight: 700, color: '#F8FAFC' }}>Offline Clienteling Copilot</div>
+    <AbsoluteFill style={{ background: C.bg, fontFamily: FONT, justifyContent: 'center', alignItems: 'center', gap: 28 }}>
+      <div style={{ opacity: fadeIn(f), fontSize: 100, fontWeight: 700, color: C.ink }}>Offline Clienteling Copilot</div>
       <div style={{ opacity: fadeIn(f, 20), fontSize: 48, color: C.tealLight }}>Private by design. Built for the counter.</div>
       <div style={{ opacity: fadeIn(f, 50), fontSize: 30, color: C.muted, marginTop: 30 }}>Team HueiHe · ASUS UGen AI League 2026 · Workplace AI · Battlefield Lightning</div>
     </AbsoluteFill>
@@ -218,7 +218,7 @@ const SCENES: Record<SceneId, React.FC> = { s1: S1, s2: S2, s3: S3, s4: S4, s5: 
 const Pitch: React.FC = () => {
   let at = 0;
   return (
-    <AbsoluteFill style={{ background: C.ink }}>
+    <AbsoluteFill style={{ background: C.bg }}>
       {ORDER.map((id) => {
         const from = at;
         const d = dur(id);
