@@ -140,7 +140,7 @@ const S5: React.FC = () => {
         <div style={{ opacity: fadeIn(f, 60), fontSize: 64, color: C.muted }}>→</div>
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 20 }}>
           {box('Host PC', 'Audio decode · validation · review UI · SQLite', 90)}
-          {box('ASUS UGen300 · Hailo-10H', '① Whisper speech-to-text\n② 1B-class LLM, schema-constrained\nBoth resident in 8 GB on-module memory', 200, true)}
+          {box('ASUS UGen300 · Hailo-10H', '① Whisper speech-to-text\n② Gemma 3 4B LLM, schema-constrained\nBoth resident in 8 GB on-module memory', 200, true)}
         </div>
         <div style={{ opacity: fadeIn(f, 330), fontSize: 64, color: C.muted }}>→</div>
         <div style={{ width: 330 }}>{box('Client record', 'Local database', 360)}</div>
@@ -180,7 +180,7 @@ const S6: React.FC = () => {
 /* ---------- S7: Stage II + business ---------- */
 const S7: React.FC = () => {
   const f = useCurrentFrame();
-  const weeks = ['Port Whisper to Hailo-10H', 'Deploy 1B LLM + schema', 'End-to-end · latency & power', 'Field test · repo · demo'];
+  const weeks = ['Port Whisper to Hailo-10H', 'Deploy Gemma 3 4B + schema', 'End-to-end · latency & power', 'Field test · repo · demo'];
   return (
     <AbsoluteFill style={{ background: C.bg, fontFamily: FONT, padding: 110, gap: 44 }}>
       <Eyebrow>Stage II · Nov 6 – Dec 4</Eyebrow>

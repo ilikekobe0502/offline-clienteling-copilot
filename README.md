@@ -16,7 +16,7 @@ Voice capture is the note-taking feature sales consultants value most, but emplo
                │
                └──► ASUS UGen300 (Hailo-10H, 40 TOPS INT4, 8 GB on-module)
                      ① Whisper speech-to-text (small-class)
-                     ② 1B–4B-class instruction LLM, JSON-schema-constrained decoding
+                     ② Gemma 3 4B instruction LLM (1B fallback), JSON-schema-constrained decoding
 ```
 
 - **Swappable backends** (`occ/backends/`): `laptop.py` (whisper.cpp + Ollama) for Stage I; `hailo.py` keeps the same interface for the UGen300 port in Stage II, so `occ/pipeline.py` does not change.
@@ -28,8 +28,8 @@ Voice capture is the note-taking feature sales consultants value most, but emplo
 
 | Stage | Model | Origin | Why |
 |---|---|---|---|
-| Speech-to-text | Whisper small (via whisper.cpp) | OpenAI | Small-class Whisper is supported on Hailo-10H |
-| Extraction | Gemma 3 1B / 4B, Llama 3.2 3B (via Ollama) | Google / Meta | Same size class the accelerator targets |
+| Speech-to-text | Whisper small (via whisper.cpp) | OpenAI | Small enough to sit beside the LLM in on-module memory; host-CPU fallback if the port slips |
+| Extraction | Gemma 3 4B (selected), Gemma 3 1B (fallback), Llama 3.2 3B (compared) | Google / Meta | Size class that fits the 8 GB on-module memory |
 
 ## Run it
 
@@ -65,8 +65,8 @@ Measured on an Apple M2 Max laptop as a proxy, with models of the size class the
 
 ## Stage II plan (Nov 6 – Dec 4)
 
-1. Bring up UGen300 + HailoRT; run Whisper on Hailo-10H; match laptop transcripts.
-2. Deploy a 1B-class instruction model on Hailo-10H; port the schema-constrained prompt.
+1. Bring up UGen300 + HailoRT; run Whisper on Hailo-10H and match laptop transcripts (fallback: Whisper on the host CPU).
+2. Deploy Gemma 3 4B on Hailo-10H (Gemma 3 1B as fallback); port the schema-constrained prompt.
 3. End-to-end on device; review UI; latency and power tuning (target ≤ 10 s from end of memo to record).
 4. Expanded test set with real field recordings; offline field test; final README, benchmarks and demo video.
 
