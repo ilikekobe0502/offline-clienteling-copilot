@@ -1,0 +1,6 @@
+models/
+*.sqlite3
+__pycache__/
+*.pyc
+ollama.log
+.DS_Store
